@@ -42,21 +42,51 @@ By law this website is designed to follow the universal design principles of Nor
 # 🤝 How to contribute
 I welcome contributions to MyGameList, if you're interested in helping, here's how you can get started:
 
-## 1. Clone
-1. Clone the repository to your local machine:
+## 1. Fork and clone
+1. Click the Fork button (top right) to create your own copy of the repo.
+2. Clone your fork to your local machine:
 ```
-# Clone the main repository
-git clone https://github.com/ByteOfWaffle/MyGameLists.git
+# Clone the forked repository
+git clone https://github.com/YOUR_USERNAME/MyGameLists.git
 ```
-Or clone by downloading the project as ZIP here:<img width="904" alt="image" src="https://github.com/user-attachments/assets/582e567c-d52f-4688-a6f2-8328bf159226" />
+Or clone by downloading the project as ZIP here in your own fork:<img width="904" alt="image" src="https://github.com/user-attachments/assets/582e567c-d52f-4688-a6f2-8328bf159226" />
+- navigate to the project folder through the terminal: cd MyGameLists
+- initialize git
+```bash
+git init
+```
 
-2. Install dependencies
+3. Install dependencies
 ```
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-## 2. Set up MariaDB database.
+## 2. Making Contributions
+1. Create a new branch for your feature:
+```bash
+git checkout -b NameOfYourFeature
+```
+
+2. Make your changes and commit them:
+```bash
+# Stage all changes
+git add .
+# Commit staged changes with a message/description
+git commit -m "Description of your changes"
+```
+
+3. Push to your branch:
+```bash
+git push origin your-feature-name
+```
+
+4. Create a Pull Request
+1. You can either copy and paste the link from the terminal or go to your forked repository on GitHub and click the "compare and pull request" button.
+2. Add a clear title and description of your changes.
+3. Submit the pull request.
+
+## 3. Set up MariaDB database.
 1. Set up the database and tables
 - You can do this in whichever way you prefer i hosted it on from Ubuntu on a virtual machine for my project.
 - The SQL used for the database and tables are in the project folder as "database.sql"
@@ -79,27 +109,6 @@ sudo ufw allow 8080
 
 4. Change ip on python file
 - In the app1.py file change the host ip to mach the one of your database.
-
-## 3. Making Contributions
-1. Create a new branch for your feature:
-```bash
-git checkout -b NameOfYourFeature
-```
-
-2. Make your changes and commit them:
-```bash
-# Stage all changes
-git add .
-# Commit staged changes with a message/description
-git commit -m "Description of your changes"
-```
-
-3. Push to your branch:
-```bash
-git push origin feature/your-feature-name
-```
-
-4. Create a Pull Request through GitHub
 
 ### Contribution Guidelines
 - Follow the existing code style
