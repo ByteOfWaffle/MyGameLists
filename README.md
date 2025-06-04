@@ -16,9 +16,8 @@ A website inspired by [MyAnimeList](https://myanimelist.net), where users can cr
 
 - **User Profiles**: Sign up, log in, and manage user profile.
 - **Game Lists**: Create and organize game list with statuses like "Playing," "Completed," or "Dropped."
-- **Global Scores**: Collect game ratings from all users into a global score.
 - **Game Database**: Search for games using the RAWG database API and get detailed information (Game library, title, genre, etc.).
-- **Reviews** Users will be able to make reviews for games in their list.
+- **Reviews** Users will be able rate and make reviews for games in their list.
 
 
 ## Current MVP progress
