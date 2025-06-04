@@ -82,9 +82,12 @@ git push origin your-feature-name
 ```
 
 4. Create a Pull Request
-1. You can either copy and paste the link from the terminal or go to your forked repository on GitHub and click the "compare and pull request" button.
-2. Add a clear title and description of your changes.
-3. Submit the pull request.
+1. You can either copy and paste the link from the terminal here:
+![image](https://github.com/user-attachments/assets/83a370e1-e4ca-4068-9d90-5c386bb26f4a)
+or go to your forked repository on GitHub and click the "compare and pull request" button like here:
+![image](https://github.com/user-attachments/assets/e6d4ce3c-c674-4b05-b46c-46e7589e4362)
+3. Add a clear title and description of your changes.
+4. Submit the pull request.
 
 ## 3. Set up MariaDB database.
 1. Set up the database and tables
