@@ -45,7 +45,7 @@ def login():
         conn = get_db_connection()
         cursor = conn.cursor()
         # Check if user exists
-        cursor.execute('SELECT * FROM users WHERE username = %s AND password = %s', # Check if user exists %s is a placeholder
+        cursor.execute('SELECT password FROM users WHERE username = %s AND password = %s', # Check if user exists %s is a placeholder
                       (username, password))
         user = cursor.fetchone() # Fetch the user from the database
         conn.close()
