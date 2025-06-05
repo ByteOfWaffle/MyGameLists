@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 import pymysql
+import bcrypt
 
 app = Flask(__name__)
 app.secret_key = 'skibidisecretkey'
@@ -24,11 +25,13 @@ def register():
         username = request.form['username']
         password = request.form['password']
         
+        # Hash the password before storing
+        hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        
         conn = get_db_connection()
         cursor = conn.cursor()
-        
         cursor.execute('INSERT INTO users (username, password) VALUES (%s, %s)', 
-                      (username, password))
+                      (username, hashed))
         conn.commit() # Commit the changes to the database
         conn.close() # Close the connection
         return redirect(url_for('login'))
@@ -44,13 +47,12 @@ def login():
         
         conn = get_db_connection()
         cursor = conn.cursor()
-        # Check if user exists
-        cursor.execute('SELECT password FROM users WHERE username = %s AND password = %s', # Check if user exists %s is a placeholder
-                      (username, password))
-        user = cursor.fetchone() # Fetch the user from the database
+        # Fetch the hashed password for the user
+        cursor.execute('SELECT password FROM users WHERE username = %s', (username,))
+        user = cursor.fetchone() # user[0] is the hashed password
         conn.close()
         
-        if user: # If the user fech is not empty then the user is logged in and sent to the index page.
+        if user and bcrypt.checkpw(password.encode('utf-8'), user[0].encode('utf-8')):
             session['logged_in'] = True
             session['username'] = username
             return redirect(url_for('index')) 
