@@ -51,7 +51,7 @@ def login():
         cursor.execute('SELECT password FROM users WHERE username = %s', (username,))
         user = cursor.fetchone() # user[0] is the hashed password
         conn.close()
-        
+         # If the user fech is not empty then the user is logged in and sent to the index page.
         if user and bcrypt.checkpw(password.encode('utf-8'), user[0].encode('utf-8')):
             session['logged_in'] = True
             session['username'] = username
